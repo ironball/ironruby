@@ -38,6 +38,13 @@ if exist "%PROGRAM_FILES_32%\Microsoft.NET\SDK\v2.0\Bin\sdkvars.bat" (
     goto EnvDone
 )
 
+REM Adding support for Visual Studio 10 CTP (but only if you don't have any other versions)
+if exist "%PROGRAM_FILES_32%\Microsoft Visual Studio 10.0\Common7\Tools\vsvars32.bat" (
+    call "%PROGRAM_FILES_32%\Microsoft Visual Studio 10.0\Common7\Tools\vsvars32.bat"
+    goto EnvDone
+)
+
+
 :EnvDone
 
 set PATH=%PATH%;%MERLIN_ROOT%\Languages\Ruby\Scripts;%MERLIN_ROOT%\Languages\Ruby\Scripts\bin;%RUBY18_BIN%;%MERLIN_ROOT%\..\External.LCA_RESTRICTED\Languages\IronRuby\mspec\mspec\bin
